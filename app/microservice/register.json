@@ -2,7 +2,7 @@
 	"name": "Carto Adapter",
 	"cache": ["query-carto"],
 	"uncache": ["query-carto"],
-	"tags": ["rw"],
+	"tags": ["skydipper"],
 	"endpoints": [{
 		"path": "/v1/query/:dataset",
 		"method": "GET",
