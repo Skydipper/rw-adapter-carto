@@ -7,7 +7,7 @@
     },
     "service": {
         "id": "rw-adapter-carto_1.0.0",
-        "name": "RW Adapter Carto API",
+        "name": "Skydipper Adapter Carto API",
         "port": 3005
     }
 }
