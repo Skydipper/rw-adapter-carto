@@ -11,11 +11,11 @@ class CartoService {
     static async getFields(urlDataset, tableName) {
         logger.debug(`Obtaining fields of ${url} and table ${tableName}`);
         const parsedUrl = url.parse(urlDataset);
-        logger.debug('Doing request to ', `https://${parsedUrl.host}/api/v2/sql?q=select * from ${tableName} limit 0`);
+        logger.debug('Doing request to ', `http://${parsedUrl.host}/user/skydipper/api/v2/sql?q=select * from ${tableName} limit 0`);
         try {
             const result = await requestPromise({
                 method: 'GET',
-                uri: `https://${parsedUrl.host}/api/v2/sql?q=select * from ${tableName} limit 0`,
+                uri: `http://${parsedUrl.host}/user/skydipper/api/v2/sql?q=select * from ${tableName} limit 0`,
                 json: true
             });
             return result.fields;
@@ -34,11 +34,11 @@ class CartoService {
         }
         const sql = Json2sql.toSQL(parsed);
         const parsedUrl = url.parse(urlDataset);
-        logger.debug('Doing request to ', unescape(`https://${parsedUrl.host}/api/v2/sql?q=${sql}`));
+        logger.debug('Doing request to ', unescape(`http://${parsedUrl.host}/user/skydipper/api/v2/sql?q=${sql}`));
         try {
             const result = await requestPromise({
                 method: 'POST',
-                uri: `https://${parsedUrl.host}/api/v2/sql`,
+                uri: `http://${parsedUrl.host}/user/skydipper/api/v2/sql`,
                 json: true,
                 body: {
                     q: unescape(sql)
@@ -54,9 +54,9 @@ class CartoService {
     static executeQuery(urlDataset, query, format) {
         logger.debug(`Doing query ${query} to ${urlDataset}`);
         const parsedUrl = url.parse(urlDataset);
-        logger.debug('Doing request to ', `https://${parsedUrl.host}/api/v2/sql?q=${query}`);
+        logger.debug('Doing request to ', `http://${parsedUrl.host}/user/skydipper/api/v2/sql?q=${query}`);
         const configRequest = {
-            uri: `https://${parsedUrl.host}/api/v2/sql`,
+            uri: `http://${parsedUrl.host}/user/skydipper/api/v2/sql`,
             method: 'POST',
             json: true,
             body: {
